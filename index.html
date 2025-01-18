@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Професійне прибирання вашого будинку</title>
+    <style>
+        :root {
+            --bg-color: #f4f4f9;
+            --text-color: #333;
+            --header-bg-color: #4CAF50;
+            --header-text-color: white;
+            --card-bg-color: white;
+            --card-border-color: #ddd;
+            --button-bg-color: #4CAF50;
+            --button-hover-bg-color: #45a049;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #333;
+            --text-color: #f4f4f9;
+            --header-bg-color: #222;
+            --header-text-color: #f4f4f9;
+            --card-bg-color: #444;
+            --card-border-color: #555;
+            --button-bg-color: #555;
+            --button-hover-bg-color: #666;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header {
+            background-color: var(--header-bg-color);
+            color: var(--header-text-color);
+            padding: 10px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        header img {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            height: 50px;
+        }
+
+        nav {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        nav a {
+            color: var(--header-bg-color);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .service {
+            background: var(--card-bg-color);
+            border: 1px solid var(--card-border-color);
+            border-radius: 8px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .service img {
+            max-width: 100%;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .service h3 {
+            color: var(--header-bg-color);
+        }
+
+        footer {
+            background-color: var(--header-bg-color);
+            color: var(--header-text-color);
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+        .contact {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .contact button {
+            background-color: var(--button-bg-color);
+            color: var(--header-text-color);
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .contact button:hover {
+            background-color: var(--button-hover-bg-color);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: var(--button-bg-color);
+            color: var(--header-text-color);
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--button-hover-bg-color);
+        }
+
+        .reviews {
+            background-color: var(--card-bg-color);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .reviews h2 {
+            color: var(--header-bg-color);
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .review {
+            margin-bottom: 15px;
+            padding: 15px;
+            border: 1px solid var(--card-border-color);
+            border-radius: 5px;
+            background: var(--bg-color);
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .review img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .review h3 {
+            margin: 0;
+            color: var(--header-bg-color);
+            font-size: 18px;
+        }
+
+        .review p {
+            margin: 5px 0 0;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        
+        <h1>Професійне прибирання вашого будинку</h1>
+    </header>
+
+    <button class="theme-toggle" onclick="toggleTheme()">Світла/Темна тема</button>
+
+    <nav>
+        <a href="#services">Послуги</a>
+        <a href="#about">Про нас</a>
+        <a href="#why">Чому обрати нас?</a>
+        <a href="#reviews">Відгуки</a>
+        <a href="#contact">Контакти</a>
+    </nav>
+
+    <div class="container">
+        <section id="services">
+            <h2>Наші послуги</h2>
+            <div class="services">
+                <div class="service">
+                    <img src="images/1.jpg" alt="Прибирання квартир">
+                    <h3>Прибирання квартир</h3>
+                    <p>Якісне прибирання вашої оселі з використанням безпечних мийних засобів.</p>
+                </div>
+                <div class="service">
+                    <img src="images/2.jpg" alt="Прибирання офісів">
+                    <h3>Прибирання офісів</h3>
+                    <p>Зробимо ваш офіс чистим та затишним для роботи.</p>
+                </div>
+                <div class="service">
+                    <img src="images/3.jpg" alt="Генеральне прибирання">
+                    <h3>Генеральне прибирання</h3>
+                    <p>Глибоке очищення всіх поверхонь, меблів та приміщень.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>Про нас</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="images/koman.jpg" alt="Команда CleanHome">
+                </div>
+                <div class="about-text">
+                    <p>Ми - команда професіоналів з багаторічним досвідом у сфері прибирання. Наша мета - зробити ваш дім чи офіс ідеально чистим та комфортним. Ми використовуємо тільки екологічно чисті та безпечні матеріали, що дозволяє нам гарантувати якість та безпеку кожної послуги.</p>
+                    <p>Наша філософія — це турбота про клієнта, довіра та прозорість. Ми постійно вдосконалюємо свої методи та прагнемо забезпечити найвищий рівень сервісу.</p>
+                    <p>Обираючи CleanHome, ви отримуєте надійного партнера для підтримки чистоти вашого простору.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="why" class="why-choose">
+            <h2>Чому варто обрати CleanHome?</h2>
+            <div class="reasons">
+                <div class="reason">
+                    <img src="images/professional-team.jpg" alt="Професійна команда">
+                    <h3>Професійна команда</h3>
+                    <p>Досвідчені працівники, які піклуються про кожну деталь.</p>
+                </div>
+                <div class="reason">
+                    <img src="images/eco-friendly.jpg" alt="Екологічно чисто">
+                    <h3>Безпечні та екологічні засоби</h3>
+                    <p>Ми використовуємо тільки засоби, що безпечні для людей та природи.</p>
+                </div>
+                <div class="reason">
+                    <img src="images/custom-approach.jpg" alt="Індивідуальний підхід">
+                    <h3>Індивідуальний підхід</h3>
+                    <p>Ми реагуємо на будь-які потреби наших клієнтів та пропонуємо індивідуальні рішення.</p>
+                </div>
+                <div class="reason">
+                    <img src="images/affordable-prices.jpg" alt="Доступні ціни">
+                    <h3>Доступні ціни</h3>
+                    <p>Ми пропонуємо гнучкі системи знижок та доступні ціни для всіх.</p>
+                </div>
+                <div class="reason">
+                    <img src="images/quality-guarantee.jpg" alt="Гарантія якості">
+                    <h3>Гарантія якості</h3>
+                    <p>Наша головна мета — ваше задоволення та повна якість послуг.</p>
+                </div>
+            </div>
+        </section>
+        
+        <style>
+            .reasons {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+                margin-top: 20px;
+            }
+        
+            .reason {
+                background: var(--card-bg-color);
+                border: 1px solid var(--card-border-color);
+                border-radius: 8px;
+                padding: 20px;
+                text-align: center;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s, box-shadow 0.3s;
+            }
+        
+            .reason:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            }
+        
+            .reason img {
+                max-width: 100%;
+                height: auto;
+                margin-bottom: 15px;
+                border-radius: 5px;
+            }
+        
+            .reason h3 {
+                color: var(--header-bg-color);
+                margin-bottom: 10px;
+            }
+        </style>
+
+        <section id="reviews" class="reviews">
+            <h2>Відгуки</h2>
+            <div class="review">
+                <img src="images/123.jpg" alt="Відгук 1">
+                <div>
+                    <h3>Ольга Іваненко</h3>
+                    <p>Дуже задоволена якістю прибирання! Дім сяє чистотою.</p>
+                </div>
+            </div>
+            <div class="review">
+                <img src="images/234.jpg" alt="Відгук 2">
+                <div>
+                    <h3>Сергій Петров</h3>
+                    <p>Відмінний сервіс! Рекомендую всім своїм друзям.</p>
+                </div>
+            </div>
+            <div class="review">
+                <img src="images/345.jpg" alt="Відгук 3">
+                <div>
+                    <h3>Ілля Осипов</h3>
+                    <p>Швидко та якісно. Обов'язково звернусь ще раз!</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!DOCTYPE html>
+    <html lang="uk">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Професійне прибирання вашого будинку</title>
+        <style>
+            :root {
+                --bg-color: #f4f4f9;
+                --text-color: #333;
+                --header-bg-color: #4CAF50;
+                --header-text-color: white;
+                --card-bg-color: white;
+                --card-border-color: #ddd;
+                --button-bg-color: #4CAF50;
+                --button-hover-bg-color: #45a049;
+            }
+    
+            [data-theme="dark"] {
+                --bg-color: #333;
+                --text-color: #f4f4f9;
+                --header-bg-color: #222;
+                --header-text-color: #f4f4f9;
+                --card-bg-color: #444;
+                --card-border-color: #555;
+                --button-bg-color: #555;
+                --button-hover-bg-color: #666;
+            }
+    
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: var(--bg-color);
+                color: var(--text-color);
+                transition: background-color 0.3s, color 0.3s;
+            }
+    
+            header {
+                background-color: var(--header-bg-color);
+                color: var(--header-text-color);
+                padding: 10px 0;
+                text-align: center;
+                position: relative;
+            }
+    
+            header img {
+                position: absolute;
+                top: 50%;
+                left: 20px;
+                transform: translateY(-50%);
+                height: 50px;
+            }
+    
+            nav {
+                text-align: center;
+                margin: 20px 0;
+            }
+    
+            nav a {
+                color: var(--header-bg-color);
+                text-decoration: none;
+                margin: 0 15px;
+                font-size: 18px;
+            }
+    
+            nav a:hover {
+                text-decoration: underline;
+            }
+    
+            .container {
+                width: 80%;
+                margin: auto;
+                overflow: hidden;
+            }
+    
+            .services {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+                justify-content: center;
+                margin: 20px 0;
+            }
+    
+            .service {
+                background: var(--card-bg-color);
+                border: 1px solid var(--card-border-color);
+                border-radius: 8px;
+                padding: 20px;
+                width: 300px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                text-align: center;
+                transition: background-color 0.3s, border-color 0.3s;
+            }
+    
+            .service img {
+                max-width: 100%;
+                border-radius: 5px;
+                margin-bottom: 15px;
+            }
+    
+            .service h3 {
+                color: var(--header-bg-color);
+            }
+    
+            footer {
+                background-color: var(--header-bg-color);
+                color: var(--header-text-color);
+                text-align: center;
+                padding: 10px 0;
+                margin-top: 20px;
+            }
+    
+            .contact {
+                text-align: center;
+                margin: 20px 0;
+            }
+    
+            .contact button {
+                background-color: var(--button-bg-color);
+                color: var(--header-text-color);
+                border: none;
+                padding: 10px 20px;
+                font-size: 16px;
+                cursor: pointer;
+                border-radius: 5px;
+                transition: background-color 0.3s;
+            }
+    
+            .contact button:hover {
+                background-color: var(--button-hover-bg-color);
+            }
+    
+            .theme-toggle {
+                position: fixed;
+                top: 10px;
+                right: 10px;
+                background-color: var(--button-bg-color);
+                color: var(--header-text-color);
+                border: none;
+                padding: 10px 20px;
+                font-size: 16px;
+                cursor: pointer;
+                border-radius: 5px;
+                transition: background-color 0.3s;
+            }
+    
+            .theme-toggle:hover {
+                background-color: var(--button-hover-bg-color);
+            }
+    
+            .reviews {
+                background-color: var(--card-bg-color);
+                padding: 20px;
+                margin: 20px 0;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+    
+            .reviews h2 {
+                color: var(--header-bg-color);
+                text-align: center;
+                font-size: 24px;
+            }
+    
+            .review {
+                margin-bottom: 15px;
+                padding: 15px;
+                border: 1px solid var(--card-border-color);
+                border-radius: 5px;
+                background: var(--bg-color);
+                display: flex;
+                align-items: flex-start;
+                gap: 15px;
+            }
+    
+            .review img {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+    
+            .review h3 {
+                margin: 0;
+                color: var(--header-bg-color);
+                font-size: 18px;
+            }
+    
+            .review p {
+                margin: 5px 0 0;
+                font-style: italic;
+            }
+    
+            .order {
+                background-color: var(--card-bg-color);
+                padding: 20px;
+                margin: 20px 0;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                max-width: 600px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+    
+            .order h2 {
+                color: var(--header-bg-color);
+                text-align: center;
+                margin-bottom: 20px;
+                font-size: 28px;
+                text-transform: uppercase;
+            }
+    
+            .order-form {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+    
+            .form-group {
+                display: flex;
+                flex-direction: column;
+            }
+    
+            .form-group label {
+                margin-bottom: 8px;
+                color: var(--text-color);
+                font-weight: bold;
+                font-size: 16px;
+            }
+    
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 15px;
+                font-size: 16px;
+                border: 1px solid var(--card-border-color);
+                border-radius: 8px;
+                background: var(--bg-color);
+                color: var(--text-color);
+                transition: border-color 0.3s;
+            }
+    
+            .form-group input:focus,
+            .form-group select:focus,
+            .form-group textarea:focus {
+                border-color: var(--header-bg-color);
+                outline: none;
+            }
+    
+            .order-button {
+                background-color: var(--button-bg-color);
+                color: var(--header-text-color);
+                padding: 15px 30px;
+                border: none;
+                border-radius: 8px;
+                font-size: 18px;
+                font-weight: bold;
+                cursor: pointer;
+                transition: background-color 0.3s;
+                text-transform: uppercase;
+            }
+    
+            .order-button:hover {
+                background-color: var(--button-hover-bg-color);
+            }
+    
+            .order-note {
+                font-size: 14px;
+                color: var(--text-color);
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+
+    
+        <div class="container">
+            <section id="order" class="order">
+                <h2>Замовлення послуг</h2>
+                <form class="order-form">
+                    <div class="form-group">
+                        <label for="name">Ім'я</label>
+                        <input type="text" id="name" name="name" placeholder="Ваше ім'я" required>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="phone">Телефон</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Ваш телефон" required>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="service">Послуга</label>
+                        <select id="service" name="service">
+                            <option value="cleaning">Прибирання квартир</option>
+                            <option value="office">Прибирання офісів</option>
+                            <option value="deep-cleaning">Генеральне прибирання</option>
+                        </select>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="address">Адреса</label>
+                        <input type="text" id="address" name="address" placeholder="Ваша адреса" required>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="notes">Додаткові примітки</label>
+                        <textarea id="notes" name="notes" placeholder="Введіть ваші побажання або додаткову інформацію"></textarea>
+                    </div>
+    
+                    <button type="submit" class="order-button">Замовити</button>
+                    <p class="order-note">Ми зв'яжемося з вами для підтвердження замовлення.</p>
+                </form>
+            </section>
+        </div>
+    
+        <script>
+            function toggleTheme() {
+                document.body.dataset.theme = document.body.dataset.theme === "dark" ? "light" : "dark";
+            }
+        </script>
+    </body>
+    </html>
+    
+
+    <footer>
+        <p>&copy; 2024 CleanHome. Всі права захищені.</p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const currentTheme = document.body.getAttribute('data-theme');
+            document.body.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
+        }
+
+        // Установить тему по умолчанию (светлая)
+        document.body.setAttribute('data-theme', 'light');
+    </script>
+
+
+
+</body>
+</html>
